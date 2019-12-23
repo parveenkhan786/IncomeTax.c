@@ -1,52 +1,46 @@
-# Prerequisites
-*.d
+#include<stdio.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+void incomeTax(int annualIncome)
+{
+    float tax=0;
+    if(annualIncome<1200000)
+    {
+        printf("\nTax is not applicable on you as you have annual Income less than 1200000");
+        return;
+    }
+    else if(annualIncome>=1200000 && annualIncome<1400000)
+    {
+          tax=annualIncome*0.05;
+    }
+     else if(annualIncome>=1400000 && annualIncome<1600000)
+    {
+          tax=annualIncome*0.07;
+    }
+     else if(annualIncome>=1600000 && annualIncome<1800000)
+    {
+          tax=annualIncome*0.09;
+    }
+    else if(annualIncome>=1800000 && annualIncome<2000000)
+    {
+          tax=annualIncome*0.11;
+    }
+     else
+     {
+          printf("\nSorry this program is unable to calculate income tax : ");
+          return;
+     }
+     printf("\n Tax on your income is : %f",tax);
+     return;
+}
+int main()
+{
+    float monthlyIncome=0,annualIncome;
+    printf("Enter your monthly Income : ");
+    scanf("%f",&monthlyIncome);
 
-# Linker output
-*.ilk
-*.map
-*.exp
+    annualIncome=monthlyIncome*12;
 
-# Precompiled Headers
-*.gch
-*.pch
+    incomeTax(annualIncome);
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+}
